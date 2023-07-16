@@ -1,0 +1,21 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGBUS (0x7) at pc=0x00007f55ad29ee08, pid=86, tid=306
+#
+# JRE version: OpenJDK Runtime Environment GraalVM CE 21.3.0 (17.0.1+12) (build 17.0.1+12-jvmci-21.3-b05)
+# Java VM: OpenJDK 64-Bit Server VM GraalVM CE 21.3.0 (17.0.1+12-jvmci-21.3-b05, mixed mode, sharing, tiered, jvmci, jvmci compiler, compressed oops, compressed class ptrs, g1 gc, linux-amd64)
+# Problematic frame:
+# V  [libjvm.so+0x781e08]  HSpaceCounters::update_used(unsigned long)+0x8
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -- %E" (or dumping to /home/runner/Processing-Java/core.86)
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/oracle/graal/issues
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions Main
+
+Host: AMD EPYC 7B12, 8 cores, 3G, Ubuntu 20.04.2 LTS
