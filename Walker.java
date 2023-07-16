@@ -3,7 +3,7 @@ import processing.core.PApplet;
 public class Walker extends PApplet
 {
   final float SHIYA_KYORI = 20.0f;
-  final float SHOTOTSU_KYORI = 3.0f;
+  final float SHOTOTSU_KYORI = 5.0f;
   final float MIN_WALK_SPEED = 0.8f;
 
   final float KASOKU = 1.1f;
@@ -76,6 +76,7 @@ public class Walker extends PApplet
   void adjustSpeed()
   {
     vx = vx + dx * 0.5f;
+    vy = vy - (y - height/2) / height * 0.1f;
     float v = (float)Math.sqrt(vx*vx+vy*vy);
     if(v>maxSpeed)
     {
@@ -94,8 +95,8 @@ public class Walker extends PApplet
     {
       fx += (x - w.x) / d ;
       fy += (y - w.y) / d ;
-      vx = vx/10.0f + fx;
-      vy = vy/10.0f + fy;
+      vx = vx/10.0f + fx * 3.0f;
+      vy = vy/10.0f + fy * 3.0f;
     }
     if( d < SHIYA_KYORI )
     {

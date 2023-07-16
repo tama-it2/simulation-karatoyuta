@@ -1,12 +1,10 @@
 import java.util.ArrayList; 
 import processing.core.PApplet;
 
-
-
 public class Sketch extends PApplet {
   final int WIDTH = 400;
   final int HEIGHT = 100;
-  final int WALKER_COUNT = 20;
+  final int WALKER_COUNT = 50;
   
   ArrayList<Walker> walkers;
   
@@ -26,8 +24,8 @@ public class Sketch extends PApplet {
 
   public void draw() {
     background(152, 190, 100);
-    for(int i=0; i<WALKER_COUNT*2; i++)
     walkers.sort( (w1,w2) -> Float.compare(w1.x, w2.x) );
+    
     for(int i=0; i<WALKER_COUNT*2; i++)
     {
       Walker w = walkers.get(i);
@@ -48,6 +46,7 @@ public class Sketch extends PApplet {
         }        
       }
     }
+    
     walkers.forEach( (w) -> w.oneStep() );
     walkers.forEach( (w) -> w.show() );
     delay(10);
