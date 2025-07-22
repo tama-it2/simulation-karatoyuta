@@ -1,7 +1,7 @@
 compile = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')"
-run = ["java", "-classpath", ".:target/dependency/*", "Main"]
-entrypoint = "Sketch.java"
+run = "java -classpath .:target/dependency/* Main"
 hidden = ["**/*.class", ".settings", ".classpath", ".project", "target"]
+modules = ["java-graalvm22.3", "nix"]
 
 [packager]
 language = "java"
@@ -13,7 +13,7 @@ packageSearch = true
 language = "java"
 
 [nix]
-channel = "stable-21_11"
+channel = "stable-24_05"
 
 [debugger]
 support = true
@@ -59,3 +59,7 @@ pattern = "**/*.java"
 
 [languages.java.languageServer]
 start = "jdt-language-server"
+
+[deployment]
+run = ["sh", "-c", "java -classpath .:target/dependency/* Main"]
+build = ["sh", "-c", "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')"]
