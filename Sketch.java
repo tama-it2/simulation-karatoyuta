@@ -2,14 +2,14 @@ import java.util.ArrayList;
 import processing.core.PApplet;
 
 public class Sketch extends PApplet {
-  final int WIDTH = 400;
-  final int HEIGHT = 100;
-  final int WALKER_COUNT = 50;
+  final int WIDTH = 800;
+  final int HEIGHT = 200;
+  final int WALKER_COUNT = 190;
   
   ArrayList<Walker> walkers;
   
   public void settings() {
-    size(400, 100);
+    size(800, 200);
     walkers = new ArrayList<Walker>();
     for(int i=0; i<WALKER_COUNT; i++)
       walkers.add( new Walker(this,WIDTH,HEIGHT,1) );

@@ -2,11 +2,11 @@ import processing.core.PApplet;
 
 public class Walker extends PApplet
 {
-  final float SHIYA_KYORI = 1.0f;
-  final float SHOTOTSU_KYORI = 1.0f;
-  final float KATAHABA = 1.0f;
+  final float SHIYA_KYORI = 10.0f;
+  final float SHOTOTSU_KYORI = 10.0f;
+  final float KATAHABA = 5.0f;
   
-  final float MIN_WALK_SPEED = 0.8f;
+  final float MIN_WALK_SPEED = 0.5f;
   final float KASOKU = 1.1f;
   
   protected int dx;
