@@ -2,10 +2,11 @@ import processing.core.PApplet;
 
 public class Walker extends PApplet
 {
-  final float SHIYA_KYORI = 20.0f;
-  final float SHOTOTSU_KYORI = 5.0f;
-  final float MIN_WALK_SPEED = 0.8f;
-
+  final float SHIYA_KYORI = 10.0f;
+  final float SHOTOTSU_KYORI = 10.0f;
+  final float KATAHABA = 5.0f;
+  
+  final float MIN_WALK_SPEED = 0.5f;
   final float KASOKU = 1.1f;
   
   protected int dx;
@@ -42,6 +43,7 @@ public class Walker extends PApplet
 
   public void show()
   {
+    if(vx>0) sketch.g.fill(255,128,0); else sketch.g.fill(0,0,255);
     sketch.g.ellipse((int)x,(int)y, 5, 5);
   }
 
@@ -87,6 +89,9 @@ public class Walker extends PApplet
 
   public boolean lookForward(Walker w)
   {
+    if(abs(w.y-y)>KATAHABA)
+      return false;
+    
     double d = Math.sqrt((w.x-x)*(w.x-x) + (w.y-y)*(w.y-y));
     float fx, fy;
     fx = 0;
@@ -95,14 +100,14 @@ public class Walker extends PApplet
     {
       fx += (x - w.x) / d ;
       fy += (y - w.y) / d ;
-      vx = vx/10.0f + fx * 3.0f;
-      vy = vy/10.0f + fy * 3.0f;
+      vx = vx/10.0f + fx * 30.0f;
+      vy = vy/10.0f + fy * 30.0f;
     }
-    if( d < SHIYA_KYORI )
+    else if( d < SHIYA_KYORI )
     {
       fx += (w.x - x) / d;
       fy += (w.y - y) / d;
-      if(w.dx == dx)
+      if(w.dx * dx > 0)
       {
         vx += fx * 0.1f;
         vy += fy * 0.1f;
